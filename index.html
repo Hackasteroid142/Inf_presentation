@@ -1,0 +1,127 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/white.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal background">
+			<div class="slides">
+				<section>
+					<h2>Nociones de R</h2>
+					<audio data-autoplay src="audios/slide1.mp3"></audio> 
+				</section>
+				<section>
+					<h4>Importación de datos</h4>
+					<ul>
+						<li class="fragment" data-fragment-index="1">R es sensible a mayúsculas</li>
+						<li class="fragment" data-fragment-index="1">No puede haber filas en blanco</li>
+						<li>Valores faltantes denotados por NA</li>
+						<li>No puede tener comentarios</li>
+						<li>Debe ser formato .csv o .txt</li>
+						<li>Para fechas se utiliza formato mm/dd/aaaa</li>
+					</ul>
+				</section>
+				<section>
+					<pre><code data-trim data-line-numbers>
+						<script type="text/template">
+							datos1 <- mtcars
+							datos2 <- read.delim(file.choose())
+							datos3 <- read.csv("C:\\Inferencia\\ejemplo1-csv-eng.csv")
+							datos4 <- read.csv2("ejemplo1-csv-esp.csv")
+
+							setwd("C:\\Inferencia")
+
+							head(datos1)
+
+							tale(datos1)
+
+
+							</script>
+					</code></pre>
+				</section>
+				<section data-state="test">
+					<pre><code data-trim data-line-numbers="1-4|1|2|3|4">
+						<script type="text/template">
+							datos1 <- mtcars
+							datos2 <- read.delim(file.choose())
+							datos3 <- read.csv("C:\\Inferencia\\ejemplo1-csv-eng.csv")
+							datos4 <- read.csv2("ejemplo1-csv-esp.csv")
+
+							setwd("C:\\Inferencia")
+
+							head(datos1)
+
+							tale(datos1)
+							</script>
+					</code></pre>
+				</section>
+				<section data-state="test2">
+					<pre><code data-trim data-line-numbers="1-4|1|2|3|4">
+						<script type="text/template">
+							datos1 <- mtcars
+							datos2 <- read.delim(file.choose())
+							datos3 <- read.csv("C:\\Inferencia\\ejemplo1-csv-eng.csv")
+							datos4 <- read.csv2("ejemplo1-csv-esp.csv")
+
+							setwd("C:\\Inferencia")
+
+							head(datos1)
+
+							tale(datos1)
+							</script>
+					</code></pre>
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+			var interval;
+			var state_ant = -2;
+			var slide_i = 1;
+			
+			function prueba(){
+				var state = Reveal.getState().indexf;
+				console.log(state,state_ant);
+				let name = "audios/slide"+slide_i+".mp3";
+				console.log(name);
+				if(state_ant != state){
+					var audio = new Audio(name);
+					audio.play();
+					state_ant = state;
+					slide_i = slide_i + 1;
+				}
+			}
+
+
+			Reveal.addEventListener('test', function(){
+				interval = setInterval(prueba, 1000)
+			});
+			Reveal.addEventListener('test2', function(){
+				clearInterval(interval);
+			});
+		</script>
+	</body>
+</html>
