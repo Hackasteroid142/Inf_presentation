@@ -1,0 +1,39 @@
+Slide 1
+Sean bienvenidos a la asignatura de Inferencia y modelos estadísticos. En esta oportunidad veremos que son y como manejar data fraymz en R
+
+Slide 2.1
+Un data fraymz se puede considerar como estructuras de datos de dos dimensiones, es decir rectangulares, que pueden contener datos de diferentes tipos, ya sean strings, números, decimales, etc.
+
+Slide 2.2
+En las filas se denotan las unidades de observación o instancias, a las que también se le puede conocer como casos, individuos u observaciones.
+Por ejemplo, la fila remarcada en rojo es una instancia del data fraymz, donde se indican los datos para una persona en especifico. 
+
+Slide 2.3
+Mientras que en las columnas se muestran las variables, o también llamados rasgos o atributos. 
+Por ejemplo, la columna demarcada en rojo indica como cambia el valor de la variable género para cada individuo o instancia del data fraym.
+
+Slide 3.1
+Algunas características de los data fraymz son las siguientes.
+Primero, estas son rectangulares, es decir, son similares a una matriz de n por m. 
+
+Slide 3.2
+Aún así, se diferencian de las matrices ya que los data fraymz rellenan la información faltante con N A, o también conocido como valor faltante. 
+
+
+Slide 3.3 
+Además, existen dos formatos para los data fraymz conocidos como formato largo y formato ancho.
+¿Pero como afectan cada formato al data fraym? Eso lo veremos a continuación.
+
+Slide 4
+Si volvemos a la tabla que se tenía anteriormente, esta se encontraba en su formato ancho, es decir, cada columna tiene su propia variable.
+Se considera que la tabla en pantalla está en un formato ancho debido a que i d, género, estatura, escalafón y servicio tienen su propia columna. 
+
+Slide 5
+Ahora, si se lleva la tabla anterior a su formato largo, se tiene lo que se muestra en pantalla. 
+Tener en cuenta que se omitieron algunos valores por temas de espacio. 
+Aquí, a diferencia del anterior, cada fila es una combinación única de variable de identificación. En palabras simples, se puede ver que ahora existe una sola columna con los nombres y otra con los valores.
+
+Slide 6
+¿Pero como creamos y manejamos los data fraymz en R?
+¿Cómo se transforma de un formato largo a ancho, o viceversa? 
+Para responder estas dudas, es que veremos las maneras y funciones para trabajar correctamente los data fraymz en Rstudio. 

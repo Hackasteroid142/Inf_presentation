@@ -17,20 +17,156 @@
 		<div class="reveal background">
 			<div class="slides">
 				<section>
-					<h2>Nociones de R</h2>
+					<h2>Data Frames en R</h2>
 					<audio data-autoplay src="audios/slide1.mp3"></audio> 
 				</section>
 				<section>
-					<h4>Importación de datos</h4>
+					<h4>¿Qué es un DataFrame? <audio data-autoplay src="audios/slide2.mp3"></audio> </h4>
+					<table>
+						<tr>
+							<th>id</th>
+							<th class="fragment highlight-red" data-fragment-index="2">género <audio data-autoplay src="audios/slide2_2.mp3"></audio></th>
+							<th>estatura</th>
+							<th>escalafón</th>
+							<th>servicio</th>
+						</tr>
+						<tr>
+							<td class="fragment highlight-current-red" data-fragment-index="1">1 <audio data-autoplay src="audios/slide2_1.mp3"></audio></td>
+							<td class="fragment highlight-red" data-fragment-index="1">M</td>
+							<td class="fragment highlight-current-red"  data-fragment-index="1">1.77</td>
+							<td class="fragment highlight-current-red" data-fragment-index="1">S</td>
+							<td class="fragment highlight-current-red"  data-fragment-index="1">89.91</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td class="fragment highlight-red" data-fragment-index="2">M</td>
+							<td>1.97</td>
+							<td>O</td>
+							<td>65.14</td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td class="fragment highlight-red" data-fragment-index="2">F</td>
+							<td>1.65</td>
+							<td>O</td>
+							<td>97.03</td>
+						</tr>
+						<tr>
+							<td>4</td>
+							<td class="fragment highlight-red" data-fragment-index="2">F</td>
+							<td>1.74</td>
+							<td>S</td>
+							<td>76.39</td>
+						</tr>
+					</table>
+				</section>
+				<section>
+					<h4>Características</h4>
 					<ul>
-						<li class="fragment" data-fragment-index="1">R es sensible a mayúsculas</li>
-						<li class="fragment" data-fragment-index="1">No puede haber filas en blanco</li>
-						<li>Valores faltantes denotados por NA</li>
-						<li>No puede tener comentarios</li>
-						<li>Debe ser formato .csv o .txt</li>
-						<li>Para fechas se utiliza formato mm/dd/aaaa</li>
+						<li class="fragment fade-in" data-fragment-index="1">Son rectangulares. <audio data-autoplay src="audios/slide3_1.mp3"></audio></li>
+						<li class="fragment fade-in" data-fragment-index="2">Rellenan información faltante.<audio data-autoplay src="audios/slide3_2.mp3"></audio></li>
+						<li class="fragment fade-in" data-fragment-index="3">Pueden estar en formato largo o ancho.<audio data-autoplay src="audios/slide3_3.mp3"></audio></li>
 					</ul>
 				</section>
+
+				<section>
+					<h4>Formato Ancho<audio data-autoplay src="audios/slide4.mp3"></audio> </h4>
+					<table>
+						<tr>
+							<th>id</th>
+							<th>género</th>
+							<th>estatura</th>
+							<th>escalafón</th>
+							<th>servicio</th>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>M</td>
+							<td>1.77</td>
+							<td>S</td>
+							<td>89.91</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>M</td>
+							<td>1.97</td>
+							<td>O</td>
+							<td>65.14</td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td>F</td>
+							<td>1.65</td>
+							<td>O</td>
+							<td>97.03</td>
+						</tr>
+						<tr>
+							<td>4</td>
+							<td>F</td>
+							<td>1.74</td>
+							<td>S</td>
+							<td>76.39</td>
+						</tr>
+					</table>
+				</section>
+					
+				<section>
+					<h4>Formato Largo<audio data-autoplay src="audios/slide5.mp3"></audio> </h4>
+					<table>
+						<tr>
+							<th>id</th>
+							<th>Variable</th>
+							<th>Valor_Variable</th>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>Género</td>
+							<td>M</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>Estatura</td>
+							<td>1.77</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>Escalafón</td>
+							<td>S</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>Servicio</td>
+							<td>89.91</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>Género</td>
+							<td>M</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>Estatura</td>
+							<td>1.97</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>Escalafón</td>
+							<td>O</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>Servicio</td>
+							<td>65.14</td>
+						</tr>
+					</table>
+				</section>
+
+				<section>
+					<h4>Dataframes en Rstudio</h4>
+					
+					<audio data-autoplay src="audios/slide6.mp3"></audio>
+				</section>
+
 				<section>
 					<pre><code data-trim data-line-numbers>
 						<script type="text/template">
@@ -65,19 +201,46 @@
 							</script>
 					</code></pre>
 				</section>
+
 				<section data-state="test2">
-					<pre><code data-trim data-line-numbers="1-4|1|2|3|4">
+					<h3>Importación de paquetes</h3>
+				</section>
+
+				<section data-state="test">
+					<pre><code data-trim data-line-numbers="1-6|1|3-4|6">
 						<script type="text/template">
-							datos1 <- mtcars
-							datos2 <- read.delim(file.choose())
-							datos3 <- read.csv("C:\\Inferencia\\ejemplo1-csv-eng.csv")
-							datos4 <- read.csv2("ejemplo1-csv-esp.csv")
+							install.packages("ggpubr")
 
-							setwd("C:\\Inferencia")
+							library(ggpubr)
+							require(ggplot2)
 
-							head(datos1)
+							install.packages("dplyr", dependecies=TRUE)
+							</script>
+					</code></pre>
+				</section>
 
-							tale(datos1)
+				<section data-state="test2" >
+					<h3>Data Frames</h3>
+				</section>
+
+				<section data-state="test" >
+					<pre ><code data-trim data-line-numbers="1-6|1|3-4|6" >
+						<script type="text/template">
+							nombre <- c("Alan Brito Delgado",
+										"Zacarías Labara del Río",
+										"Elsa Payo Maduro")
+							fecha_nacimiento <- as.Date(c("2008-1-25", "2006-10-4", "2008-3-27"))
+
+							prueba_1 <- c(5.5, 3.4, 4.5)
+							prueba_2 <- c(3.2, 4.7, 4.1)
+							prueba_3 <- c(4.8, 4.3, 5.1)
+
+							dataframe <- data.frame(nombre,
+													fecha_nacimiento,
+													prueba_1,
+													prueba_2,
+													prueba_3,
+													stringsAsFactors = FALSE)
 							</script>
 					</code></pre>
 				</section>
@@ -94,6 +257,7 @@
 			// - https://revealjs.com/config/
 			Reveal.initialize({
 				hash: true,
+				width: 1200,
 
 				// Learn about plugins: https://revealjs.com/plugins/
 				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
