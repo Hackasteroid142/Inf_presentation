@@ -163,10 +163,83 @@
 
 				<section>
 					<h4>Dataframes en Rstudio</h4>
-					
 					<audio data-autoplay src="audios/slide6.mp3"></audio>
 				</section>
 
+				<section>
+					<pre><code data-trim data-line-numbers>
+						<script type="text/template">
+							nombre <- c("Alan Brito Delgado",
+										"Zacarías Labarca del Río",
+										"Elsa Payo Maduro")
+
+							fecha_nacimiento <- as.Date(c("2008-1-25", "2006-10-4", "2008-3-27"))
+
+							prueba_1 <- c(5.5, 3.4, 4.5)
+							prueba_2 <- c(3.2, 4.7, 4.1)
+							prueba_3 <- c(4.8, 4.3, 5.1)
+						</script>
+					</code></pre>
+				</section>
+
+				<section>
+					<pre ><code data-trim data-line-numbers="1-6|1|3-4|6" >
+						<script type="text/template">
+							dataframe <- data.frame(nombre,
+													fecha_nacimiento,
+													prueba_1,
+													prueba_2,
+													prueba_3,
+													stringsAsFactors = FALSE)
+							</script>
+					</code></pre>
+				</section>
+
+				<section>
+					<pre><code data-trim data-line-numbers>
+						<script type="text/template">
+							install.packages("tidyr")
+							install.packages("dplyr")
+
+							library("tidyr")
+							library("dplyr")
+
+							df_cuentas <- data.frame(dia = c("Lunes", "Martes", "Miercoles"),
+											Lobo = c(2, 1, 3), Liebre = c(20, 25, 30), Zorro = c(4, 4, 4)) 
+							</script>
+					</code></pre>
+				</section>
+
+				<section>
+					<pre><code data-trim data-line-numbers>
+						<script type="text/template">
+							df_largo <- df_cuentas %>% 
+										gather(key = Columnas, value = Valores)
+
+							df_largo <- df_cuentas %>% 
+										gather(key = Columnas, value = Valores, -dia)
+							</script>
+					</code></pre>
+				</section>
+
+				<section>
+					<pre><code data-trim data-line-numbers>
+						<script type="text/template">
+							df_ancho <- df_largo %>% 
+										gather(key = dia, value = Abundancia)
+							</script>
+					</code></pre>
+				</section>
+
+				<section>
+					<pre><code data-trim data-line-numbers>
+						<script type="text/template">
+							df_select <- df_cuentas %>% select(Lobo,Liebre)
+							</script>
+					</code></pre>
+				</section>
+
+				
 				<section>
 					<pre><code data-trim data-line-numbers>
 						<script type="text/template">
@@ -206,44 +279,10 @@
 					<h3>Importación de paquetes</h3>
 				</section>
 
-				<section data-state="test">
-					<pre><code data-trim data-line-numbers="1-6|1|3-4|6">
-						<script type="text/template">
-							install.packages("ggpubr")
 
-							library(ggpubr)
-							require(ggplot2)
 
-							install.packages("dplyr", dependecies=TRUE)
-							</script>
-					</code></pre>
-				</section>
 
-				<section data-state="test2" >
-					<h3>Data Frames</h3>
-				</section>
-
-				<section data-state="test" >
-					<pre ><code data-trim data-line-numbers="1-6|1|3-4|6" >
-						<script type="text/template">
-							nombre <- c("Alan Brito Delgado",
-										"Zacarías Labara del Río",
-										"Elsa Payo Maduro")
-							fecha_nacimiento <- as.Date(c("2008-1-25", "2006-10-4", "2008-3-27"))
-
-							prueba_1 <- c(5.5, 3.4, 4.5)
-							prueba_2 <- c(3.2, 4.7, 4.1)
-							prueba_3 <- c(4.8, 4.3, 5.1)
-
-							dataframe <- data.frame(nombre,
-													fecha_nacimiento,
-													prueba_1,
-													prueba_2,
-													prueba_3,
-													stringsAsFactors = FALSE)
-							</script>
-					</code></pre>
-				</section>
+			
 			</div>
 		</div>
 
