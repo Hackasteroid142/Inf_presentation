@@ -166,8 +166,8 @@
 					<audio data-autoplay src="audios/slide6.mp3"></audio>
 				</section>
 
-				<section>
-					<pre><code data-trim data-line-numbers>
+				<section data-state="start_audio">
+					<pre><code data-trim data-line-numbers="1-9|1-3|5|7-9">
 						<script type="text/template">
 							nombre <- c("Alan Brito Delgado",
 										"Zacarías Labarca del Río",
@@ -183,7 +183,7 @@
 				</section>
 
 				<section>
-					<pre ><code data-trim data-line-numbers="1-6|1|3-4|6" >
+					<pre ><code data-trim data-line-numbers="1-6|6" >
 						<script type="text/template">
 							dataframe <- data.frame(nombre,
 													fecha_nacimiento,
@@ -196,7 +196,7 @@
 				</section>
 
 				<section>
-					<pre><code data-trim data-line-numbers>
+					<pre><code data-trim data-line-numbers="1-8|1-2|4-5|7-8">
 						<script type="text/template">
 							install.packages("tidyr")
 							install.packages("dplyr")
@@ -211,7 +211,7 @@
 				</section>
 
 				<section>
-					<pre><code data-trim data-line-numbers>
+					<pre><code data-trim data-line-numbers="1-5|1-2|4-5">
 						<script type="text/template">
 							df_largo <- df_cuentas %>% 
 										gather(key = Columnas, value = Valores)
@@ -305,10 +305,10 @@
 			var state_ant = -2;
 			var slide_i = 1;
 			
-			function prueba(){
+			function change_audio_code(){
 				var state = Reveal.getState().indexf;
 				console.log(state,state_ant);
-				let name = "audios/slide"+slide_i+".mp3";
+				let name = "audios/code_"+slide_i+".mp3";
 				console.log(name);
 				if(state_ant != state){
 					var audio = new Audio(name);
@@ -319,10 +319,10 @@
 			}
 
 
-			Reveal.addEventListener('test', function(){
-				interval = setInterval(prueba, 1000)
+			Reveal.addEventListener('start_audio', function(){
+				interval = setInterval(change_audio_code, 1000)
 			});
-			Reveal.addEventListener('test2', function(){
+			Reveal.addEventListener('stop_audio', function(){
 				clearInterval(interval);
 			});
 		</script>
