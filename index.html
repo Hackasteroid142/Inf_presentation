@@ -196,87 +196,27 @@
 				</section>
 
 				<section>
-					<pre><code data-trim data-line-numbers="1-8|1-2|4-5|7-8">
+					<pre ><code data-trim data-line-numbers="1-13|1|3|5-11|13" >
 						<script type="text/template">
-							install.packages("tidyr")
-							install.packages("dplyr")
+							dataframe$fecha_nacimiento <- NULL
 
-							library("tidyr")
-							library("dplyr")
+							dataframe$edad <- c(23,25,23)
 
-							df_cuentas <- data.frame(dia = c("Lunes", "Martes", "Miercoles"),
-											Lobo = c(2, 1, 3), Liebre = c(20, 25, 30), Zorro = c(4, 4, 4)) 
+							nueva <- data.frame(nombre="Elba Calao del Río",
+									prueba_1 = 6.4,
+									prueba_2 = 2.3,
+									prueba_3 = 4.6,
+									edad = 24)
+
+							dataframe <- rbind(dataframe, nueva)
+
+							dataframe <- dataframe[-c(1)] 
 							</script>
 					</code></pre>
 				</section>
 
-				<section>
-					<pre><code data-trim data-line-numbers="1-5|1-2|4-5">
-						<script type="text/template">
-							df_largo <- df_cuentas %>% 
-										gather(key = Columnas, value = Valores)
-
-							df_largo <- df_cuentas %>% 
-										gather(key = Columnas, value = Valores, -dia)
-							</script>
-					</code></pre>
-				</section>
-
-				<section>
-					<pre><code data-trim data-line-numbers>
-						<script type="text/template">
-							df_ancho <- df_largo %>% 
-										gather(key = dia, value = Abundancia)
-							</script>
-					</code></pre>
-				</section>
-
-				<section>
-					<pre><code data-trim data-line-numbers>
-						<script type="text/template">
-							df_select <- df_cuentas %>% select(Lobo,Liebre)
-							</script>
-					</code></pre>
-				</section>
-
-				
-				<section>
-					<pre><code data-trim data-line-numbers>
-						<script type="text/template">
-							datos1 <- mtcars
-							datos2 <- read.delim(file.choose())
-							datos3 <- read.csv("C:\\Inferencia\\ejemplo1-csv-eng.csv")
-							datos4 <- read.csv2("ejemplo1-csv-esp.csv")
-
-							setwd("C:\\Inferencia")
-
-							head(datos1)
-
-							tale(datos1)
-
-
-							</script>
-					</code></pre>
-				</section>
-				<section data-state="test">
-					<pre><code data-trim data-line-numbers="1-4|1|2|3|4">
-						<script type="text/template">
-							datos1 <- mtcars
-							datos2 <- read.delim(file.choose())
-							datos3 <- read.csv("C:\\Inferencia\\ejemplo1-csv-eng.csv")
-							datos4 <- read.csv2("ejemplo1-csv-esp.csv")
-
-							setwd("C:\\Inferencia")
-
-							head(datos1)
-
-							tale(datos1)
-							</script>
-					</code></pre>
-				</section>
-
-				<section data-state="test2">
-					<h3>Importación de paquetes</h3>
+				<section data-state="top_audio">
+					<h4>¡Gracias por su atención! <audio data-autoplay src="audios/slide7.mp3"></audio></h4>
 				</section>
 
 

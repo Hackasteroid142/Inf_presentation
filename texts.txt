@@ -59,29 +59,23 @@ code 6
 Cabe destacar el uso del  argumento string as Factors con valor falso. ya que si no se entrega este parámetro, R asume que su valor por defecto es verdadero, por lo que interpreta al vector de strings como una variable categórica y asigna un valor numérico a cada nivel. 
 
 code 7
-¿Y como transformamos de formato ancho a largo, o viceversa? 
-Para esto comencemos a revisar el siguiente ejemplo.
+En el siguiente ejemplo se pueden ver algunas cosas que se pueden hacer sobre el data fraym
 
 code 8
-Primero que todo, se debe instalar los paquetes tidyr y deplyr (solo en caso de que no se encuentren instalados)
+La primera linea indica como eliminar una columna del data fraym. Como se muestra, esta solo tiene que ser igualada a nulo. 
+En el ejemplo se está eliminando la columna fecha nacimiento
 
 code 9
-El siguiente paso es importar los paquetes que fueron instalados anteriormente. 
+Pero también se pueden agregar columnas. En el ejemplo se puede ver como se agrega una nueva columna edad. 
 
 code 10
-Para el caso del ejemplo, se crea un data fraym básico para ser transformado. 
-Este tiene los datos para avistamiento de animales durante un cierto periodo de días. 
+Así como también se puede agregar una nueva observación para el data fraym. 
+Para esto desde la linea 5 a la 9 se crea un nuevo data fraym que será la nueva observación agregada, donde este tiene todas las variables que contiene el data fraym inicial.
+Luego, a través de la función r bind, se une el data fraym original con la observación nueva. 
 
 code 11
-Como el data fraym creado anteriormente viene por defecto en su formato ancho, si se quiere transformar al formato largo se utiliza la función gather. 
-En las siguientes líneas de código se muestran algunas formas de utilizar esta función. 
+Finalmente, también se pueden borrar observaciones del data fraym. 
+Esto se puede lograr realizando lo escrito en la linea resaltada, donde en esta se está eliminando la primera observación del data fraym. 
 
-code 12
-En esta forma, al data fraym data cuentas se le aplica la función gather. 
-Esta tiene como primer argumento key, es el nombre que asignamos a la columna que incluya las etiquetas de las columnas en formato ancho.
-Por otro lado value, es el nombre que asignamos a la columna que incluye los valores de dichas columnas.
-Para este caso es columna y valores, respectivamente
-
-code 13
-En el otro ejemplo, se incluye otro argumento el cual es guion días, el cual indica que se transforman todas las columnas pero la columna para días se mantiene intacta. 
-Cabe destacar que se puede poner cualquier cantidad de columnas para que se mantengan intactas, por ejemplo, se podría agregar la columna zorro para que también se mantenga en el formato ancho. 
+Slide 7
+Eso ha sido todo por hoy. ¡Muchas gracias por su atención!
