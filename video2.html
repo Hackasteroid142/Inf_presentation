@@ -1,0 +1,164 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/white.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal background">
+			<div class="slides">
+				<section>
+					<h2>Data Frames en R</h2>
+				</section>
+                
+                <section>
+					<h4>Resumen</h4>
+					<ul>
+						<li>Formato Ancho</li>
+                        <li>Formato Largo</li>
+					</ul>
+				</section>
+
+                <section>
+                    <h3>Transformación en Rstudio</h3>
+                </section>
+
+                <section>
+					<h4>Formato Ancho</h4>
+					<table>
+						<tr>
+							<th>id</th>
+							<th>género</th>
+							<th>estatura</th>
+							<th>escalafón</th>
+							<th>servicio</th>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>M</td>
+							<td>1.77</td>
+							<td>S</td>
+							<td>89.91</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>M</td>
+							<td>1.97</td>
+							<td>O</td>
+							<td>65.14</td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td>F</td>
+							<td>1.65</td>
+							<td>O</td>
+							<td>97.03</td>
+						</tr>
+						<tr>
+							<td>4</td>
+							<td>F</td>
+							<td>1.74</td>
+							<td>S</td>
+							<td>76.39</td>
+						</tr>
+					</table>
+				</section>
+
+                <section>
+                    <pre><code data-trim data-line-numbers="1-3">
+                        <script type="text/template">
+                            dataframe
+
+                            library(tidyr)
+                            library(dipyr)
+                        </script>
+                        </code>
+                    </pre>
+                </section>
+
+                <section>
+                    <pre><code data-trim data-line-numbers="1-3">
+                        <script type="text/template">
+                            df.largo <-  pivot_longer(dataframe,servicio, names_to="Tipo_servicio", 
+                                                        values="Valor_Servicio")
+                        </script>
+                        </code>
+                    </pre>
+                </section>
+
+                <section>
+                    <pre><code data-trim data-line-numbers="1-3">
+                        <script type="text/template">
+                            df.ancho <-  pivot_wider(df.largo,names_to="Tipo_servicio", 
+                                                        values="Valor_Servicio")
+                        </script>
+                        </code>
+                    </pre>
+                </section>
+
+                <section>
+                    <pre><code data-trim data-line-numbers="1-3">
+                        <script type="text/template">
+                            dataframe
+
+                            library(tidyr)
+                            library(dipyr)
+                        </script>
+                        </code>
+                    </pre>
+                </section>
+
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+				width: 1200,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+			var interval;
+			var state_ant = -2;
+			var slide_i = 1;
+			
+			function change_audio_code(){
+				var state = Reveal.getState().indexf;
+				console.log(state,state_ant);
+				let name = "audios/code_"+slide_i+".mp3";
+				console.log(name);
+				if(state_ant != state){
+					var audio = new Audio(name);
+					audio.play();
+					state_ant = state;
+					slide_i = slide_i + 1;
+				}
+			}
+
+
+			Reveal.addEventListener('start_audio', function(){
+				interval = setInterval(change_audio_code, 1000)
+			});
+			Reveal.addEventListener('stop_audio', function(){
+				clearInterval(interval);
+			});
+		</script>
+	</body>
+</html>
