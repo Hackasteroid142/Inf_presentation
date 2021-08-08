@@ -18,9 +18,11 @@
 			<div class="slides">
 				<section>
 					<h2>Data Frames en R</h2>
+					<audio data-autoplay src="audios/video2/slide_1.mp3"></audio>
 				</section>
                 
                 <section>
+					<audio data-autoplay src="audios/video2/slide_2.mp3"></audio>
 					<h4>Resumen</h4>
 					<ul>
 						<li>Formato Ancho</li>
@@ -29,10 +31,12 @@
 				</section>
 
                 <section>
+					<audio data-autoplay src="audios/video2/slide_3.mp3"></audio>
                     <h3>Transformación en Rstudio</h3>
                 </section>
 
                 <section>
+					<audio data-autoplay src="audios/video2/slide_4.mp3"></audio>
 					<h4>Formato Ancho</h4>
 					<table>
 						<tr>
@@ -73,49 +77,134 @@
 					</table>
 				</section>
 
-                <section>
-                    <pre><code data-trim data-line-numbers="1-3">
+                <section data-state="start_audio">
+                    <pre><code data-trim data-line-numbers="1-4|1|3-4">
                         <script type="text/template">
                             dataframe
 
                             library(tidyr)
-                            library(dipyr)
+                            library(dplyr)
                         </script>
                         </code>
                     </pre>
+                </section>
+
+                <section data-state="stop_audio">
+					<audio data-autoplay src="audios/video2/slide_6.mp3"></audio>
+                    <pre><code data-trim data-line-numbers="1-2">
+						
+                        <script type="text/template">
+                            df.largo <- pivot_longer(dataframe,servicio, names_to="Variable", 
+                                                        values_to="Valor_Servicio")
+                        </script>
+                        </code>
+                    </pre>
+                </section>
+
+				<section>
+					<audio data-autoplay src="audios/video2/slide_7.mp3"></audio>
+					<h4>Formato Largo</h4>
+					<table>
+						<tr>
+							<th>id</th>
+							<th>género</th>
+							<th>estatura</th>
+							<th>escalafón</th>
+							<th>Variable</th>
+							<th>Valor_servicio</th>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>M</td>
+							<td>1.77</td>
+							<td>S</td>
+							<td>servicio</td>
+							<td>89.91</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>M</td>
+							<td>1.97</td>
+							<td>O</td>
+							<td>servicio</td>
+							<td>65.14</td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td>F</td>
+							<td>1.65</td>
+							<td>O</td>
+							<td>servicio</td>
+							<td>97.03</td>
+						</tr>
+						<tr>
+							<td>4</td>
+							<td>F</td>
+							<td>1.74</td>
+							<td>S</td>
+							<td>servicio</td>
+							<td>76.39</td>
+						</tr>
+					</table>
+				</section>
+
+				<section>
+					<audio data-autoplay src="audios/video2/slide_8.mp3"></audio>
+                    <h3>Transformación a Formato ancho</h3>
                 </section>
 
                 <section>
+					<audio data-autoplay src="audios/video2/slide_9.mp3"></audio>
                     <pre><code data-trim data-line-numbers="1-3">
                         <script type="text/template">
-                            df.largo <-  pivot_longer(dataframe,servicio, names_to="Tipo_servicio", 
-                                                        values="Valor_Servicio")
+                            df.ancho <- pivot_wider(df.largo,names_from="Variable", 
+                                                        values_from="Valor_servicio")
                         </script>
                         </code>
                     </pre>
                 </section>
 
-                <section>
-                    <pre><code data-trim data-line-numbers="1-3">
-                        <script type="text/template">
-                            df.ancho <-  pivot_wider(df.largo,names_to="Tipo_servicio", 
-                                                        values="Valor_Servicio")
-                        </script>
-                        </code>
-                    </pre>
-                </section>
-
-                <section>
-                    <pre><code data-trim data-line-numbers="1-3">
-                        <script type="text/template">
-                            dataframe
-
-                            library(tidyr)
-                            library(dipyr)
-                        </script>
-                        </code>
-                    </pre>
-                </section>
+				<section>
+					<audio data-autoplay src="audios/video2/slide_10.mp3"></audio>
+					<h4>Formato Ancho</h4>
+					<table>
+						<tr>
+							<th>id</th>
+							<th>género</th>
+							<th>estatura</th>
+							<th>escalafón</th>
+							<th>servicio</th>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>M</td>
+							<td>1.77</td>
+							<td>S</td>
+							<td>89.91</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>M</td>
+							<td>1.97</td>
+							<td>O</td>
+							<td>65.14</td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td>F</td>
+							<td>1.65</td>
+							<td>O</td>
+							<td>97.03</td>
+						</tr>
+						<tr>
+							<td>4</td>
+							<td>F</td>
+							<td>1.74</td>
+							<td>S</td>
+							<td>76.39</td>
+						</tr>
+					</table>
+				</section>
 
 			</div>
 		</div>
@@ -142,7 +231,7 @@
 			function change_audio_code(){
 				var state = Reveal.getState().indexf;
 				console.log(state,state_ant);
-				let name = "audios/code_"+slide_i+".mp3";
+				let name = "audios/video2/code_"+slide_i+".mp3";
 				console.log(name);
 				if(state_ant != state){
 					var audio = new Audio(name);

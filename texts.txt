@@ -79,3 +79,21 @@ Esto se puede lograr realizando lo escrito en la linea resaltada, donde en esta 
 
 Slide 7
 Eso ha sido todo por hoy. ¡Muchas gracias por su atención!
+
+
+Para recordar, existían dos tipos de formato para los data fraymz. 
+El formato ancho es donde cada columna tiene su propia variable, en cambio, en el formato largo cada fila es una combinación de la variable con su valor.
+
+Tomemos inicialmente la siguiente tabla. 
+Esta contiene información sobre el género, estatura, escalafón y los años de servicio de cierta cantidad de personas. 
+Como se puede ver, esta tabla se encuentra en su formato ancho. 
+Entonces, ¿Cómo la transformamos a su formato largo?
+
+Entonces, para transformar a formato largo se utiliza la función pivot longer.
+Entre algunos parámetros que recibe son los que se ven en pantalla. 
+El primero corresponde a la tabla que se quiere transformar, el siguiente a la columna que se tomará como pivote y los últimos dos corresponden a los nombres de las nuevas columnas. 
+
+Para esto se utiliza la función pivot wider. 
+Entre los parametros que recibe se encuentran los siguientes. 
+El primero es un data fraym en su formato largo. 
+Neimes from es la columna de donde se sacaran los nombres para las nuevas columnas y values from es la columna de donde sacara los valores para estas nuevas columnas. 
