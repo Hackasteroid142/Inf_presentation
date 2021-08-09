@@ -206,6 +206,47 @@
 					</table>
 				</section>
 
+				<section>
+					<audio data-autoplay src="audios/video2/slide_8.mp3"></audio>
+                    <h3>Otras operaciones</h3>
+                </section>
+
+				<section>
+					<h3>pivot_longer()</h3>
+                    <pre><code data-trim data-line-numbers=>
+                        <script type="text/template">
+							df.largo <- pivot_longer(dataframe, !genero, names_to="Variable"
+													values_to="Valor")
+
+							df.largo <- pivot_longer(dataframe,c(genero,escalafon),names_to="Variable"
+													values_to="Valor")
+
+							
+                        </script>
+                        </code>
+                    </pre>
+                </section>
+
+				<section>
+					<h3>pivot_wider()</h3>
+                    <pre><code data-trim data-line-numbers=>
+                        <script type="text/template">
+							df.ancho <- pivot_wider(df.largo, names_from="Variable"
+												values_from="Servicio",
+												values_fill=0)
+
+							df.ancho <- pivot_wider(df.largo, names_from="Variable",
+											values_from = c("Servicio", "Estatura"))
+							
+                        </script>
+                        </code>
+                    </pre>
+                </section>
+
+				<section data-state="stop_audio">
+					<h4>¡Gracias por su atención! <audio data-autoplay src="audios/slide7.mp3"></audio></h4>
+				</section>
+
 			</div>
 		</div>
 
