@@ -207,13 +207,13 @@
 				</section>
 
 				<section>
-					<audio data-autoplay src="audios/video2/slide_8.mp3"></audio>
+					<audio data-autoplay src="audios/video2/slide_11.mp3"></audio>
                     <h3>Otras operaciones</h3>
                 </section>
 
-				<section>
+				<section data-state="start_audio">
 					<h3>pivot_longer()</h3>
-                    <pre><code data-trim data-line-numbers=>
+                    <pre><code data-trim data-line-numbers="1-5|1-2|4-5">
                         <script type="text/template">
 							df.largo <- pivot_longer(dataframe, !genero, names_to="Variable"
 													values_to="Valor")
